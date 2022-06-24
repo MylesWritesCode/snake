@@ -32,21 +32,44 @@ impl SnakeGame {
     }
 }
 
+fn check_range(value: usize, min: usize, max: usize) -> bool {
+    return value > min && value < max;
+}
+
+#[allow(dead_code)]
 #[cfg(test)]
 mod snake {
     use super::*;
-
-    #[test]
-    fn output() {
-        println!("{:?}", SnakeGame::new(10, 10));
-    }
+    const WIDTH: usize = 10;
+    const HEIGHT: usize = 10;
 
     #[test]
     fn should_construct_with_right_variables() {
-        let game = SnakeGame::new(10, 10);
+        let game = SnakeGame::new(WIDTH, HEIGHT);
 
         assert_eq!(game.direction, Direction::South);
         assert_eq!(game.width, 10);
         assert_eq!(game.height, 10);
+    }
+
+    #[test]
+    fn should_have_food_in_bounds() {
+        for _ in 1..100 {
+            let game = SnakeGame::new(WIDTH, HEIGHT);
+
+            assert!(check_range(game.food.0, 0, WIDTH));
+            assert!(check_range(game.food.1, 0, HEIGHT));
+        }
+    }
+
+    #[test]
+    fn should_have_snake_in_bounds() {
+        for _ in 1..100 {
+            let game = SnakeGame::new(WIDTH, HEIGHT);
+            let head = game.snake.first().unwrap();
+
+            assert!(check_range(head.0, 0, WIDTH));
+            assert!(check_range(head.1, 0, HEIGHT));
+        }
     }
 }
