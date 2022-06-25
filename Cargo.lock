@@ -48,7 +48,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rust-cli-starter"
+name = "snake-wasm"
 version = "0.1.0"
 dependencies = [
  "wasm-bindgen",
