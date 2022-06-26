@@ -1,3 +1,5 @@
+use wasm_bindgen::prelude::*;
+
 mod snake;
 use snake::SnakeGame;
 use web_sys::console;
