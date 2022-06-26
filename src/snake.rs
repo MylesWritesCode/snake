@@ -1,4 +1,6 @@
-use std::collections::VecDeque;
+use std::{borrow::Borrow, collections::VecDeque};
+
+use crate::random::random_range;
 
 pub type Position = (usize, usize);
 
@@ -66,7 +68,19 @@ impl SnakeGame {
             }
 
             self.snake.push_front(head);
-            self.snake.pop_back();
+            if head != self.food {
+                self.snake.pop_back();
+            } else {
+                let open_positions = (0..self.height)
+                    .flat_map(|y| (0..self.width).map(move |x| (x, y)))
+                    .filter(|&pos| !self.snake.contains(&pos))
+                    .collect::<Vec<Position>>();
+
+                self.food = open_positions
+                    .get(random_range(0, open_positions.len()))
+                    .unwrap()
+                    .to_owned();
+            }
             self.check_snake_condition();
         }
     }
@@ -137,27 +151,40 @@ mod snake {
     #[test]
     fn should_flag_as_has_lost_if_head_hits_bounds() {
         let mut direction: Direction;
+        let mut starting_position: Position;
         // @note There's an nicer way to do this with some enum iterator macro, but
         //       I don't want to install a crate _just_ for this.
         for d in 0..=3 {
             match d {
-                0 => direction = Direction::North,
-                1 => direction = Direction::South,
-                2 => direction = Direction::West,
-                3 => direction = Direction::East,
+                0 => {
+                    direction = Direction::North;
+                    starting_position = (5, 4);
+                }
+                1 => {
+                    direction = Direction::South;
+                    starting_position = (5, 6);
+                }
+                2 => {
+                    direction = Direction::West;
+                    starting_position = (6, 5)
+                }
+                3 => {
+                    direction = Direction::East;
+                    starting_position = (4, 5);
+                }
                 _ => panic!("Should never hit here. There are only four directions."),
             }
 
             let mut game = SnakeGame {
                 width: WIDTH,
                 height: HEIGHT,
-                snake: vec![(5_usize, 5_usize)].into(),
+                snake: vec![starting_position].into(),
                 direction,
                 food: (0_usize, 0_usize),
                 has_lost: false,
             };
 
-            for i in 1..=5 {
+            for i in 0..=5 {
                 game.tick();
                 if i != 5 {
                     assert!(!game.has_lost);

@@ -5,6 +5,7 @@ use wasm_bindgen::{prelude::*, JsCast};
 
 mod snake;
 use snake::SnakeGame;
+mod random;
 use web_sys::{console, window, Document, HtmlDivElement, HtmlElement};
 
 thread_local! {
