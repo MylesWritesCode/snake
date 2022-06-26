@@ -79,7 +79,7 @@ differences between the two listed below.
 ### Built With
 
 - [Rust](https://rust-lang.org)
-- [wasm-pack](https://github.com/rustwasm/wasm-pack)
+- [Remix](https://remix.run/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -92,8 +92,8 @@ Install the pre-requisites linked below then follow the instrucations in usage.
 ### Prerequisites
 
 - [Rust](https://rust-lang.org)
-- [serve](https://www.npmjs.com/package/serve)
-- [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/)
+- [NodeJS](https://nodejs.org/en/)
+- [wasm-pack](https://github.com/rustwasm/wasm-pack)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
