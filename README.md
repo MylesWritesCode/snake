@@ -69,15 +69,16 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-This is your basic Rust CLI starter kit. Most of the README isn't going to make
-sense until I figure out exactly what and how I want the project to be built. In
-the meantime, feel free to use this as-is.
+This is the famous snake game with the game logic built in Rust and compiled to
+WASM via [wasm-pack](https://github.com/rustwasm/wasm-pack). The web rendering
+implementation will depend on the branch that you're looking at with the
+differences between the two listed below.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
 
-- [Clap](https://github.com/clap-rs/clap)
+- [Rust](https://rust-lang.org)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -90,6 +91,7 @@ Install the pre-requisites linked below then follow the instrucations in usage.
 ### Prerequisites
 
 - [Rust](https://rust-lang.org)
+- [NodeJS](https://nodejs.org/en/)
 - [serve](https://www.npmjs.com/package/serve)
 - [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/)
 
@@ -116,6 +118,13 @@ wasm-pack build --target web
 ```
 serve
 ```
+
+## Branches
+
+- `main` should be the JS implementation, where Rust and WASM is only used for
+  game logic. Render logic + game state will be kept on the JS side.
+- `with-mostly-rust` is the Rust implementation, where I use mostly Rust for both
+  the game logic and the rendering implementation.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
