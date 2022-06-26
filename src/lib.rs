@@ -6,7 +6,7 @@ use wasm_bindgen::{prelude::*, JsCast};
 mod snake;
 use snake::SnakeGame;
 mod random;
-use web_sys::{console, window, Document, HtmlDivElement, HtmlElement, KeyboardEvent};
+use web_sys::{console, window, HtmlDivElement, HtmlElement, KeyboardEvent};
 
 thread_local! {
 
@@ -67,7 +67,9 @@ pub fn main() {
     render();
 }
 
-// @note This is kinda nuts. Doing this in JS just seems better
+// @note This is kinda nuts. Doing this in JS just seems better. Also, this
+//       updates every node on every tick, which is a lot of wasted work. Maybe
+//       I can use pub-sub to only update dom elements that need to be updated.
 pub fn render() {
     let document = window().unwrap_throw().document().unwrap_throw();
     let root = document
