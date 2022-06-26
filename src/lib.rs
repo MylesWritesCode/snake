@@ -6,19 +6,37 @@ use wasm_bindgen::{prelude::*, JsCast};
 mod snake;
 use snake::SnakeGame;
 mod random;
-use web_sys::{console, window, Document, HtmlDivElement, HtmlElement};
+use web_sys::{console, window, Document, HtmlDivElement, HtmlElement, KeyboardEvent};
 
 thread_local! {
 
     static GAME: Rc<RefCell<SnakeGame>> = Rc::new(RefCell::new(SnakeGame::new(20, 20)));
 
     static TICK_CLOSURE: Closure<dyn FnMut()> = Closure::wrap(Box::new({
-        let game = GAME.with(|game| game.clone());
-        move || {
-            game.borrow_mut().tick();
+        || {
+            GAME.with(|game| game.borrow_mut().tick());
             render();
         }
     }) as Box<dyn FnMut()>);
+
+    static HANDLE_KEYDOWN: Closure<dyn FnMut(KeyboardEvent)> = Closure::wrap(Box::new({
+        |event: KeyboardEvent| {
+            GAME.with(|game| {
+                let direction = match event.key().as_str() {
+                    "ArrowUp" => Some(snake::Direction::North),
+                    "ArrowDown" => Some(snake::Direction::South),
+                    "ArrowLeft" => Some(snake::Direction::West),
+                    "ArrowRight" => Some(snake::Direction::East),
+                    _ => None
+                };
+
+                if let Some(direction) = direction {
+                    game.borrow_mut().change_direction(direction)
+                }
+
+            });
+        }
+    }) as Box<dyn FnMut(KeyboardEvent)>);
 
 }
 
@@ -34,6 +52,16 @@ pub fn main() {
                 500,
             )
             .unwrap_throw()
+    });
+
+    HANDLE_KEYDOWN.with(|closure| {
+        window()
+            .unwrap_throw()
+            .add_event_listener_with_callback(
+                "keydown",
+                closure.as_ref().dyn_ref::<Function>().unwrap_throw(),
+            )
+            .unwrap_throw();
     });
 
     render();
@@ -75,7 +103,7 @@ pub fn render() {
 
             el.set_inner_text({
                 if position == GAME.with(|game| game.borrow().food) {
-                    "🐀"
+                    "🍕"
                 } else if GAME.with(|game| game.borrow().snake.contains(&position)) {
                     "🟩"
                 } else {

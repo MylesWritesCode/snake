@@ -1,8 +1,8 @@
 <div id="top"></div>
 
 <!-- VARIABLES TO GLOBAL SEARCH + REPLACE
-- rust-cli-starter                           // repo_name
-- Rust CLI Starter                           // project_title
+- snake                                      // repo_name
+- Snake with Rust & WASM                     // project_title
 - A starter template for a Rust CLI program  // project_description
 - MylesWritesCode                            // github_username
 - MylesCodesEmoji                            // twitter_handle
@@ -17,7 +17,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/MylesWritesCode/rust-cli-starter">
+  <a href="https://github.com/MylesWritesCode/snake">
     <img src=".meta/logo.png" alt="Logo">
   </a>
 
@@ -26,14 +26,14 @@
   <p align="center">
     A starter template for a Rust CLI program
     <br />
-    <a href="https://github.com/MylesWritesCode/rust-cli-starter"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/MylesWritesCode/snake"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/MylesWritesCode/rust-cli-starter">View Demo</a>
+    <a href="https://github.com/MylesWritesCode/snake">View Demo</a>
     ·
-    <a href="https://github.com/MylesWritesCode/rust-cli-starter/issues">Report Bug</a>
+    <a href="https://github.com/MylesWritesCode/snake/issues">Report Bug</a>
     ·
-    <a href="https://github.com/MylesWritesCode/rust-cli-starter/issues">Request Feature</a>
+    <a href="https://github.com/MylesWritesCode/snake/issues">Request Feature</a>
   </p>
 </div>
 
@@ -143,16 +143,16 @@ serve
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/MylesWritesCode/rust-cli-starter.svg?style=for-the-badge
-[contributors-url]: https://github.com/MylesWritesCode/rust-cli-starter/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/MylesWritesCode/rust-cli-starter.svg?style=for-the-badge
-[forks-url]: https://github.com/MylesWritesCode/rust-cli-starter/network/members
-[stars-shield]: https://img.shields.io/github/stars/MylesWritesCode/rust-cli-starter.svg?style=for-the-badge
-[stars-url]: https://github.com/MylesWritesCode/rust-cli-starter/stargazers
-[issues-shield]: https://img.shields.io/github/issues/MylesWritesCode/rust-cli-starter.svg?style=for-the-badge
-[issues-url]: https://github.com/MylesWritesCode/rust-cli-starter/issues
-[license-shield]: https://img.shields.io/github/license/MylesWritesCode/rust-cli-starter.svg?style=for-the-badge
-[license-url]: https://github.com/MylesWritesCode/rust-cli-starter/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/MylesWritesCode/snake.svg?style=for-the-badge
+[contributors-url]: https://github.com/MylesWritesCode/snake/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/MylesWritesCode/snake.svg?style=for-the-badge
+[forks-url]: https://github.com/MylesWritesCode/snake/network/members
+[stars-shield]: https://img.shields.io/github/stars/MylesWritesCode/snake.svg?style=for-the-badge
+[stars-url]: https://github.com/MylesWritesCode/snake/stargazers
+[issues-shield]: https://img.shields.io/github/issues/MylesWritesCode/snake.svg?style=for-the-badge
+[issues-url]: https://github.com/MylesWritesCode/snake/issues
+[license-shield]: https://img.shields.io/github/license/MylesWritesCode/snake.svg?style=for-the-badge
+[license-url]: https://github.com/MylesWritesCode/snake/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/myles-berueda
 [twitter-shield]: https://img.shields.io/twitter/follow/MylesCodesEmoji?style=for-the-badge
