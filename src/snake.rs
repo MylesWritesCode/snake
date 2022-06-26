@@ -40,7 +40,7 @@ impl SnakeGame {
             width,
             height,
             snake: [((width / 2).max(0), (height / 2))].into_iter().collect(),
-            direction: Direction::South,
+            direction: Direction::West,
             food: (2.min(width - 1), height / 2),
             has_lost: false,
         }
@@ -107,7 +107,7 @@ mod snake {
     fn should_construct_with_right_variables() {
         let game = SnakeGame::new(WIDTH, HEIGHT);
 
-        assert_eq!(game.direction, Direction::South);
+        assert_eq!(game.direction, Direction::West);
         assert_eq!(game.width, 10);
         assert_eq!(game.height, 10);
     }

@@ -14,4 +14,4 @@ js-sys = "0"
 
 [dependencies.web-sys]
 version = "0"
-features = ["Window", "Document", "Element", "HtmlElement", "console"]
+features = ["Window", "Document", "Element", "HtmlElement", "HtmlDivElement", "CssStyleDeclaration", "console"]
