@@ -121,7 +121,7 @@ serve
 
 ## Branches
 
-- `master` should be the JS implementation, where Rust and WASM is only used for
+- `main` should be the JS implementation, where Rust and WASM is only used for
   game logic. Render logic + game state will be kept on the JS side.
 - `with-mostly-rust` is the Rust implementation, where I use mostly Rust for both
   the game logic and the rendering implementation.
