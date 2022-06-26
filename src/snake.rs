@@ -58,6 +58,10 @@ impl SnakeGame {
     }
 
     pub fn tick(&mut self) {
+        if self.has_lost {
+            return;
+        }
+
         if let Some(&(x, y)) = self.snake.front() {
             let head: Position;
             match self.direction {
