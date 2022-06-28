@@ -1,0 +1,19 @@
+{
+  "name": "snake-game",
+  "version": "1.0.0",
+  "description": "",
+  "files": [
+    "pkg/**"
+  ],
+  "scripts": {
+    "build": "wasm-pack build --target web"
+  },
+  "devDependencies": {
+    "tsconfig": "*"
+  },
+  "author": "",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  }
+}
