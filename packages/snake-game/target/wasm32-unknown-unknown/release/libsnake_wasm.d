@@ -1,1 +1,0 @@
-/home/myles/dev/rust/snake/target/wasm32-unknown-unknown/release/libsnake_wasm.rlib: /home/myles/dev/rust/snake/src/lib.rs /home/myles/dev/rust/snake/src/random.rs /home/myles/dev/rust/snake/src/snake.rs
