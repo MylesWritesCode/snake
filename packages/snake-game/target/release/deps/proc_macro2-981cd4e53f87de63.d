@@ -1,0 +1,12 @@
+/home/myles/dev/rust/snake/target/release/deps/proc_macro2-981cd4e53f87de63.rmeta: /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/lib.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/marker.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/parse.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/detection.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/fallback.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/wrapper.rs
+
+/home/myles/dev/rust/snake/target/release/deps/libproc_macro2-981cd4e53f87de63.rlib: /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/lib.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/marker.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/parse.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/detection.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/fallback.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/wrapper.rs
+
+/home/myles/dev/rust/snake/target/release/deps/proc_macro2-981cd4e53f87de63.d: /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/lib.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/marker.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/parse.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/detection.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/fallback.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/wrapper.rs
+
+/home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/lib.rs:
+/home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/marker.rs:
+/home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/parse.rs:
+/home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/detection.rs:
+/home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/fallback.rs:
+/home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.40/src/wrapper.rs:

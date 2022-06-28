@@ -1,0 +1,12 @@
+/home/myles/dev/rust/snake/target/debug/deps/textwrap-ad2269053dec9a79.rmeta: /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/lib.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/indentation.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/word_separators.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/word_splitters.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/wrap_algorithms.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/core.rs
+
+/home/myles/dev/rust/snake/target/debug/deps/libtextwrap-ad2269053dec9a79.rlib: /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/lib.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/indentation.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/word_separators.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/word_splitters.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/wrap_algorithms.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/core.rs
+
+/home/myles/dev/rust/snake/target/debug/deps/textwrap-ad2269053dec9a79.d: /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/lib.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/indentation.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/word_separators.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/word_splitters.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/wrap_algorithms.rs /home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/core.rs
+
+/home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/lib.rs:
+/home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/indentation.rs:
+/home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/word_separators.rs:
+/home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/word_splitters.rs:
+/home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/wrap_algorithms.rs:
+/home/myles/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.0/src/core.rs:
