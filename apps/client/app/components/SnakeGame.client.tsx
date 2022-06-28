@@ -1,7 +1,6 @@
-import init from 'snake-game';
+import { main } from 'snake-game';
 
 export function SnakeGame() {
-  const snake = init;
 
   return (
     <div id="snakeGameContainer">

@@ -80,6 +80,7 @@ differences between the two listed below.
 
 - [Rust](https://rust-lang.org)
 - [Remix](https://remix.run/)
+- [Turborepo](https://turborepo.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -107,16 +108,29 @@ Install the pre-requisites linked below then follow the instrucations in usage.
 git clone https://github.com/MylesWritesCode/snake.git
 ```
 
-2. Build the WASM from the Rust code
+2. Install deps
 
+```
+yarn install
+```
+
+3. Build the project
+
+```
+yarn build
+```
+
+4. Run the server
+```
+yarn dev
+# or
+yarn start
+```
+
+### Only building the WASM
+1. `cd` into `packages/snake-game`
 ```
 wasm-pack build --target web
-```
-
-3. Static serve the index file
-
-```
-serve
 ```
 
 ## Branches
