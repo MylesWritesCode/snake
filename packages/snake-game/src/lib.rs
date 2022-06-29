@@ -1,10 +1,10 @@
-use std::{cell::RefCell, rc::Rc};
+use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
-use js_sys::Function;
-use wasm_bindgen::{prelude::*, JsCast};
+use js_sys::{Array, Function};
+use wasm_bindgen::{prelude::*, JsCast, JsObject};
 
 mod snake;
-use snake::SnakeGame;
+use snake::{Position, SnakeGame};
 mod random;
 use web_sys::{console, window, HtmlDivElement, HtmlElement, KeyboardEvent};
 
@@ -36,6 +36,10 @@ thread_local! {
             });
         }
     }) as Box<dyn FnMut(KeyboardEvent)>);
+}
+
+pub fn observable() {
+
 }
 
 #[wasm_bindgen]

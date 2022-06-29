@@ -71,7 +71,7 @@
 
 This is the famous snake game with the game logic built in Rust and compiled to
 WASM via [wasm-pack](https://github.com/rustwasm/wasm-pack). The web rendering
-implementation will depend on the branch that you're looking at with the 
+implementation will depend on the branch that you're looking at with the
 differences between the two listed below.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -121,6 +121,7 @@ yarn build
 ```
 
 4. Run the server
+
 ```
 yarn dev
 # or
@@ -128,18 +129,52 @@ yarn start
 ```
 
 ### Only building the WASM
+
 1. `cd` into `packages/snake-game`
+
 ```
 # This totally works 👍
-wasm-pack build --target web      
+wasm-pack build --target web
 ```
 
 ## Branches
 
-- `main` should be the JS implementation, where Rust and WASM is only used for
-  game logic. Render logic + game state will be kept on the JS side.
+- `main` should be the JS implementation, where Rust and WASM is used for
+  everything except for presentation, which will be taken care of on the JS side.
 - `with-mostly-rust` is the Rust implementation, where I use mostly Rust for both
   the game logic and the rendering implementation.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Rust + WASM + React notes
+
+- Rust + WASM should take care of game state including ticks. I'm thinking that
+  we create an array of enums that map to each grid element.
+
+  ```
+  enum PositionType {
+    Food,
+    Snake
+  }
+  ```
+
+- When a position is updated, we send observable data to the frontend with the
+  index and the enum. We assume a PositionType of None all squares in the grid.
+  ```
+  struct BoardPositionEvent {
+    position: usize,
+    variant: Option<PositionType>
+  }
+  ```
+- In theory, we only need to send three of these structs over, containing the
+  head, tail, and food.
+- On the React side, we should listen for these updates from WASM. When we get an
+  index, we update that position using the enum type to either color the block,
+  or display food "🍕".
+- The React side should also listen for `has_lost`, which will emit when we have
+  a lost game state.
+- Screw it, we'll let Rust also take care of the movement by listening to keydown
+  events.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

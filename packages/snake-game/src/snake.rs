@@ -1,3 +1,5 @@
+use wasm_bindgen::{prelude::*, JsCast, JsObject};
+
 use std::collections::VecDeque;
 
 use crate::random::random_range;
@@ -34,6 +36,7 @@ pub struct SnakeGame {
     pub direction: Direction,
     pub food: Position,
     pub has_lost: bool,
+    pub is_active: bool,
 }
 
 impl SnakeGame {
@@ -45,7 +48,16 @@ impl SnakeGame {
             direction: Direction::West,
             food: (2.min(width - 1), height / 2),
             has_lost: false,
+            is_active: false,
         }
+    }
+
+    pub fn start(&mut self) {
+        self.is_active = true;
+    }
+
+    pub fn stop(&mut self) {
+        self.is_active = false;
     }
 
     pub fn change_direction(&mut self, direction: Direction) {
@@ -58,7 +70,7 @@ impl SnakeGame {
     }
 
     pub fn tick(&mut self) {
-        if self.has_lost {
+        if self.has_lost || !self.is_active {
             return;
         }
 
@@ -186,6 +198,7 @@ mod snake {
                 direction,
                 food: (0_usize, 0_usize),
                 has_lost: false,
+                is_active: true,
             };
 
             for i in 0..=5 {
@@ -224,6 +237,7 @@ mod snake {
             direction: Direction::South,
             food: (0_usize, 0_usize),
             has_lost: false,
+            is_active: true,
         };
 
         game.tick();
