@@ -2,15 +2,20 @@ import type { NextPage } from "next";
 import { useEffect, useLayoutEffect, useState } from "react";
 
 const Home: NextPage = () => {
-  const [game, setState] = useState<any>();
+  const [game, setGame] = useState<typeof import("snake-game")>();
 
   loadWasm();
 
   async function loadWasm() {
     await import("snake-game").then((module) => {
-      setState(module);
+      setGame(module);
     });
   }
+
+  useEffect(() => {
+    if (!game) return;
+    game.run();
+  }, [game]);
 
   return (
     <div className="flex items-center justify-center min-h-screen p-2 min-w-screen bg-gradient-to-br from-emerald-400 to-indigo-300">
