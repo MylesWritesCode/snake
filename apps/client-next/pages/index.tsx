@@ -1,21 +1,18 @@
 import type { NextPage } from "next";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect } from "react";
+import { useSnakeGame } from "../hooks/useSnakeGame";
+import { greet } from "snake-game";
 
 const Home: NextPage = () => {
-  const [game, setGame] = useState<typeof import("snake-game")>();
-
-  loadWasm();
-
-  async function loadWasm() {
-    await import("snake-game").then((module) => {
-      setGame(module);
-    });
-  }
+  const { isLoaded } = useSnakeGame();
 
   useEffect(() => {
-    if (!game) return;
-    game.run();
-  }, [game]);
+    if (!isLoaded) {
+      return;
+    }
+
+    greet("Myles");
+  }, [isLoaded]);
 
   return (
     <div className="flex items-center justify-center min-h-screen p-2 min-w-screen bg-gradient-to-br from-emerald-400 to-indigo-300">
