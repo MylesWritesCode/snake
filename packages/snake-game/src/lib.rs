@@ -16,8 +16,11 @@ thread_local! {
 
     static TICK_CLOSURE: Closure<dyn FnMut()> = Closure::wrap(Box::new({
         || {
-            GAME.with(|game| game.borrow_mut().tick());
-            render();
+            GAME.with(|game| {
+                game.borrow_mut().start();
+                game.borrow_mut().tick();
+                render();
+            })
         }
     }) as Box<dyn FnMut()>);
 
@@ -46,6 +49,8 @@ pub fn observable() {}
 #[wasm_bindgen]
 pub fn main() {
     console::log_1(&"Starting web server...".into());
+    
+    GAME.with(|game| game.borrow_mut().start());
 
     TICK_CLOSURE.with(|closure| {
         window()
