@@ -130,11 +130,8 @@ yarn start
 ### Only building the WASM
 1. `cd` into `packages/snake-game`
 ```
-# This is supposed to work, but I'm having a hard time importing
+# This totally works 👍
 wasm-pack build --target web      
-
-# This works to import into React
-wasm-pack build --target bundler  
 ```
 
 ## Branches

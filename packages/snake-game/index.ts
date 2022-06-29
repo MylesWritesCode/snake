@@ -1,1 +1,1 @@
-export { run, greet } from "./pkg";
+export * as init from "./pkg/snake_wasm";

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSnakeGame } from "../hooks/useSnakeGame";
-import { greet } from "snake-game";
+import { init } from "snake-game";
 
 export function SnakeGame() {
   const { isLoaded } = useSnakeGame();
@@ -9,10 +9,14 @@ export function SnakeGame() {
     if (!isLoaded) {
       return;
     }
+
+    init.main();
   }, [isLoaded]);
 
   return (
-    <div className="bg-slate-50 w-[500px] p-2 h-[500px]">
+    <div
+      id="snakeGameContainer"
+      className="bg-slate-50 w-[500px] p-2 h-[500px]">
       <h2>works</h2>
     </div>
   );

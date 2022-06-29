@@ -9,7 +9,6 @@ mod random;
 use web_sys::{console, window, HtmlDivElement, HtmlElement, KeyboardEvent};
 
 thread_local! {
-
     static GAME: Rc<RefCell<SnakeGame>> = Rc::new(RefCell::new(SnakeGame::new(20, 20)));
 
     static TICK_CLOSURE: Closure<dyn FnMut()> = Closure::wrap(Box::new({
@@ -23,8 +22,8 @@ thread_local! {
         |event: KeyboardEvent| {
             GAME.with(|game| {
                 let direction = match event.key().as_str() {
-                    "ArrowUp" => Some(snake::Direction::North),
-                    "ArrowDown" => Some(snake::Direction::South),
+                    "ArrowUp" => Some(snake::Direction::South),
+                    "ArrowDown" => Some(snake::Direction::North),
                     "ArrowLeft" => Some(snake::Direction::West),
                     "ArrowRight" => Some(snake::Direction::East),
                     _ => None
@@ -37,22 +36,10 @@ thread_local! {
             });
         }
     }) as Box<dyn FnMut(KeyboardEvent)>);
-
 }
 
 #[wasm_bindgen]
-extern "C" {
-    fn alert(s: &str);
-}
-
-#[wasm_bindgen]
-pub fn greet(name: &str) {
-    console::log_1(&format!("Hello, {}", name).into());
-    alert(&format!("Hello, {}", name));
-}
-
-#[wasm_bindgen]
-pub fn run() {
+pub fn main() {
     console::log_1(&"Starting web server...".into());
 
     TICK_CLOSURE.with(|closure| {
@@ -60,7 +47,7 @@ pub fn run() {
             .unwrap_throw()
             .set_interval_with_callback_and_timeout_and_arguments_0(
                 closure.as_ref().dyn_ref::<Function>().unwrap_throw(),
-                500,
+                200,
             )
             .unwrap_throw()
     });
@@ -78,9 +65,6 @@ pub fn run() {
     render();
 }
 
-// @note This is kinda nuts. Doing this in JS just seems better. Also, this
-//       updates every node on every tick, which is a lot of wasted work. Maybe
-//       I can use pub-sub to only update dom elements that need to be updated.
 pub fn render() {
     let document = window().unwrap_throw().document().unwrap_throw();
     let root = document
