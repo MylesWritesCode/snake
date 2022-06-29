@@ -5,6 +5,7 @@ export default function Web() {
     <div>
       <h1>Web</h1>
       <Button />
+      <script type="module"></script>
     </div>
   );
 }

@@ -1,7 +1,5 @@
-import { main } from 'snake-game';
 
 export function SnakeGame() {
-
   return (
     <div id="snakeGameContainer">
       <div>

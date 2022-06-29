@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "files": [
-    "pkg/**"
+    "pkg/**",
+    "index.ts"
   ],
   "scripts": {
     "build": "wasm-pack build --target web"

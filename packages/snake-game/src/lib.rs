@@ -40,8 +40,19 @@ thread_local! {
 
 }
 
-#[wasm_bindgen(start)]
-pub fn main() {
+#[wasm_bindgen]
+extern "C" {
+    fn alert(s: &str);
+}
+
+#[wasm_bindgen]
+pub fn greet(name: &str) {
+    console::log_1(&format!("Hello, {}", name).into());
+    alert(&format!("Hello, {}", name));
+}
+
+#[wasm_bindgen]
+pub fn run() {
     console::log_1(&"Starting web server...".into());
 
     TICK_CLOSURE.with(|closure| {
@@ -73,7 +84,7 @@ pub fn main() {
 pub fn render() {
     let document = window().unwrap_throw().document().unwrap_throw();
     let root = document
-        .get_element_by_id("root".into())
+        .get_element_by_id("snakeGameContainer".into())
         .unwrap_throw()
         .dyn_into::<HtmlElement>()
         .unwrap_throw();
