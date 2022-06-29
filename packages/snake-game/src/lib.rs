@@ -4,7 +4,10 @@ use js_sys::{Array, Function};
 use wasm_bindgen::{prelude::*, JsCast, JsObject};
 
 mod snake;
-use snake::{Position, SnakeGame};
+mod board_state;
+use snake::SnakeGame;
+mod utils;
+use utils::Direction;
 mod random;
 use web_sys::{console, window, HtmlDivElement, HtmlElement, KeyboardEvent};
 
@@ -22,10 +25,10 @@ thread_local! {
         |event: KeyboardEvent| {
             GAME.with(|game| {
                 let direction = match event.key().as_str() {
-                    "ArrowUp" => Some(snake::Direction::South),
-                    "ArrowDown" => Some(snake::Direction::North),
-                    "ArrowLeft" => Some(snake::Direction::West),
-                    "ArrowRight" => Some(snake::Direction::East),
+                    "ArrowUp" => Some(Direction::South),
+                    "ArrowDown" => Some(Direction::North),
+                    "ArrowLeft" => Some(Direction::West),
+                    "ArrowRight" => Some(Direction::East),
                     _ => None
                 };
 
@@ -38,9 +41,7 @@ thread_local! {
     }) as Box<dyn FnMut(KeyboardEvent)>);
 }
 
-pub fn observable() {
-
-}
+pub fn observable() {}
 
 #[wasm_bindgen]
 pub fn main() {
@@ -69,6 +70,8 @@ pub fn main() {
     render();
 }
 
+// @note `render()` should only emit events and/or send data to the JS side,
+// instead of updating each DOM node.
 pub fn render() {
     let document = window().unwrap_throw().document().unwrap_throw();
     let root = document
@@ -77,7 +80,6 @@ pub fn render() {
         .dyn_into::<HtmlElement>()
         .unwrap_throw();
 
-    // Clear root element
     root.set_inner_html("");
 
     let width = GAME.with(|game| game.borrow().width);

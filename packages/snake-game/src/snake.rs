@@ -1,34 +1,14 @@
-use wasm_bindgen::{prelude::*, JsCast, JsObject};
-
 use std::collections::VecDeque;
 
+use serde::{Deserialize, Serialize};
+
+use crate::board_state::{BoardState, IntoBoardState};
 use crate::random::random_range;
+use crate::utils::Direction;
 
 pub type Position = (usize, usize);
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq, PartialOrd, Ord)]
-pub enum Direction {
-    North,
-    South,
-    East,
-    West,
-}
-
-impl std::ops::Not for Direction {
-    // Direction will use negation to denote opposite directions
-    type Output = Self;
-
-    fn not(self) -> Self::Output {
-        match self {
-            Direction::North => Direction::South,
-            Direction::South => Direction::North,
-            Direction::West => Direction::East,
-            Direction::East => Direction::West,
-        }
-    }
-}
-
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Deserialize, Serialize)]
 pub struct SnakeGame {
     pub width: usize,
     pub height: usize,
@@ -122,14 +102,17 @@ impl SnakeGame {
     }
 }
 
-pub fn check_range(value: usize, min: usize, max: usize) -> bool {
-    value >= min && value <= max
+impl IntoBoardState for SnakeGame {
+    fn convert_to_board_state(&mut self) -> BoardState {
+        todo!()
+    }
 }
-
 #[allow(dead_code)]
 #[cfg(test)]
 mod snake {
     use super::*;
+    use crate::utils::check_range;
+
     const WIDTH: usize = 10;
     const HEIGHT: usize = 10;
 
@@ -245,42 +228,5 @@ mod snake {
 
         game.tick();
         assert!(game.has_lost); // second movement, hitting 11th node on (5, 3)
-    }
-}
-
-#[cfg(test)]
-mod direction {
-    use super::*;
-
-    #[test]
-    fn should_invert_north_to_only_south() {
-        assert_eq!(!Direction::North, Direction::South);
-        assert_ne!(!Direction::North, Direction::North);
-        assert_ne!(!Direction::North, Direction::West);
-        assert_ne!(!Direction::North, Direction::East);
-    }
-
-    #[test]
-    fn should_invert_south_to_only_north() {
-        assert_eq!(!Direction::South, Direction::North);
-        assert_ne!(!Direction::South, Direction::South);
-        assert_ne!(!Direction::South, Direction::West);
-        assert_ne!(!Direction::South, Direction::East);
-    }
-
-    #[test]
-    fn should_invert_west_to_only_east() {
-        assert_eq!(!Direction::West, Direction::East);
-        assert_ne!(!Direction::West, Direction::North);
-        assert_ne!(!Direction::West, Direction::South);
-        assert_ne!(!Direction::West, Direction::West);
-    }
-
-    #[test]
-    fn should_invert_east_to_only_west() {
-        assert_eq!(!Direction::East, Direction::West);
-        assert_ne!(!Direction::East, Direction::North);
-        assert_ne!(!Direction::East, Direction::South);
-        assert_ne!(!Direction::East, Direction::East);
     }
 }
